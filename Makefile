@@ -1,6 +1,7 @@
 APP=$(shell basename $(shell git remote get-url origin))
 GHCR_REGISTRY=ghcr.io/art-of-d
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
+IMAGE_ID := $(shell docker images --format='{{.ID}}' | head -1)
 
 linux:
 	$(MAKE) image TARGETOS=linux TARGETARCH=amd64
@@ -43,10 +44,5 @@ push:
 
 clean:
 	rm -rf coding-session-1
-	docker rmi -f ${GHCR_REGISTRY}/${APP}:${VERSION}-linux-amd64
-	docker rmi -f ${GHCR_REGISTRY}/${APP}:${VERSION}-linux-arm64
-	docker rmi -f ${GHCR_REGISTRY}/${APP}:${VERSION}-windows-amd64
-	docker rmi -f ${GHCR_REGISTRY}/${APP}:${VERSION}-windows-arm64
-	docker rmi -f ${GHCR_REGISTRY}/${APP}:${VERSION}-darwin-amd64
-	docker rmi -f ${GHCR_REGISTRY}/${APP}:${VERSION}-darwin-arm64
+	docker rmi -f $(IMAGE_ID)
 
