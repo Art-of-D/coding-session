@@ -29,7 +29,7 @@ get:
 lint:
 	golint
 
-text:
+test:
 	go test -v
 
 image:
