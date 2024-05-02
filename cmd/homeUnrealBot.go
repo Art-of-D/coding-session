@@ -13,7 +13,7 @@ import (
 var (
 	// TeleToken bot
 	TeleToken  = os.Getenv("TELE_TOKEN")
-	appVersion = "1.1.0"
+	appVersion = "1.1.1"
 )
 
 // homeUnrealBotCmd represents the homeUnrealBot command
