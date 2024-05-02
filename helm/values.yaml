@@ -1,0 +1,10 @@
+replicaCount: 1
+
+image:
+  repository: artdtra
+  tag: "v.1.1.0-8135b3d"
+
+secret:
+  name: coding-session-1
+  tokenKey: token
+  tokenName: TELE_TOKEN
