@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: artdtra
-  tag: "v.1.1.0-34ed17c"
+  tag: "v1.1.1-d5ef740"
 
 secret:
   name: coding-session-1
