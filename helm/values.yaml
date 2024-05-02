@@ -3,8 +3,12 @@ replicaCount: 1
 image:
   repository: artdtra
   tag: "v1.1.1-d5ef740"
+  arch: "amd64"
+  os: "linux"
 
 secret:
   name: coding-session-1
   tokenKey: token
   tokenName: TELE_TOKEN
+securityContext:
+  privileged: true
