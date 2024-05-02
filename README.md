@@ -12,5 +12,3 @@ When you press button - you will get a message.
 6. read -s TELE_TOKEN -> Ctr+V and Enter
 7. echo $TELE_TOKEN -> You will see your token
 8. export TELE_TOKEN
-9. ./coding-session-1 start -> (you will get message that bot is started)
-

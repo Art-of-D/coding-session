@@ -43,7 +43,7 @@ build: format get
 	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o coding-session-1 -ldflags "-X"=github.com/Art-of-D/coding-session-1/cmd.appVersion=${VERSION}
 
 push:
-	docker push ${GHCR_REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker push ${GHCR_REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 clean:
 	rm -rf coding-session-1
