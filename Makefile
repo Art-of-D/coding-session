@@ -58,7 +58,7 @@ test:
 	go test -v
 
 image:
-	docker build . -t ${REGESTRY}/${APP}:${VERSION}-${detected_OS}-${TARGETARCH} --build-arg TARGETOS=${detected_OS} --build-arg TARGETARCH=${TARGETARCH}
+	docker build . -t ${GHCR_REGISTRY}/${APP}:${VERSION}-${detected_OS}-${TARGETARCH} --build-arg TARGETOS=${detected_OS} --build-arg TARGETARCH=${TARGETARCH}
 
 build: format get
 	@printf "$GDetected OS/ARCH: $R$(detected_OS)/$(detected_arch)$D\n"
@@ -70,7 +70,7 @@ push:
 arm: format get
 	@printf "$GTarget OS/ARCH: $R$(detected_OS)/arm$D\n"
 	CGO_ENABLED=0 GOOS=$(detected_OS) GOARCH=arm go build -v -o kbot -ldflags "-X="github.com/vit-um/kbot/cmd.appVersion=${VERSION}
-	docker build --build-arg name=arm -t ${REGESTRY}/${APP}:${VERSION}-$(detected_OS)-arm .
+	docker build --build-arg name=arm -t ${GHCR_REGISTRY}/${APP}:${VERSION}-$(detected_OS)-arm .
 
 dive: image
 	IMG1=$$(docker images -q | head -n 1); \
