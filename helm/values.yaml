@@ -1,11 +1,9 @@
 replicaCount: 1
-
 image:
   repository: artdtra
-  tag: "v1.1.1-d5ef740"
+  tag: "v1.2.0-988165c"
   arch: "amd64"
   os: "linux"
-
 secret:
   name: coding-session-1
   tokenKey: token
