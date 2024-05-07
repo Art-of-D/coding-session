@@ -62,14 +62,14 @@ image:
 
 build: format get
 	@printf "$GDetected OS/ARCH: $R$(detected_OS)/$(detected_arch)$D\n"
-	CGO_ENABLED=0 GOOS=$(detected_OS) GOARCH=$(detected_arch) go build -v -o kbot -ldflags "-X="github.com/Art-of-D/coding-session-1/cmd.appVersion=${VERSION}
+	CGO_ENABLED=0 GOOS=$(detected_OS) GOARCH=$(detected_arch) go build -v -o coding-session-1 -ldflags "-X="github.com/Art-of-D/coding-session-1/cmd.appVersion=${VERSION}
 
 push:
 	docker push ${GHCR_REGISTRY}/${APP}:${VERSION}-${TARGETOS}-${TARGETARCH}
 
 arm: format get
 	@printf "$GTarget OS/ARCH: $R$(detected_OS)/arm$D\n"
-	CGO_ENABLED=0 GOOS=$(detected_OS) GOARCH=arm go build -v -o kbot -ldflags "-X="github.com/vit-um/kbot/cmd.appVersion=${VERSION}
+	CGO_ENABLED=0 GOOS=$(detected_OS) GOARCH=arm go build -v -o coding-session-1 -ldflags "-X="github.com/Art-of-D/coding-session-1/cmd.appVersion=${VERSION}
 	docker build --build-arg name=arm -t ${GHCR_REGISTRY}/${APP}:${VERSION}-$(detected_OS)-arm .
 
 dive: image
